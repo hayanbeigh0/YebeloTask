@@ -5,14 +5,17 @@ class ProductModel {
   int? pAvailability;
   String? pDetails;
   String? pCategory;
+  String? pImageUrl;
 
-  ProductModel(
-      {this.pName,
-      this.pId,
-      this.pCost,
-      this.pAvailability,
-      this.pDetails,
-      this.pCategory});
+  ProductModel({
+    this.pName,
+    this.pId,
+    this.pCost,
+    this.pAvailability,
+    this.pDetails,
+    this.pCategory,
+    this.pImageUrl,
+  });
 
   ProductModel.fromJson(Map<String, dynamic> json) {
     pName = json['p_name'];
@@ -21,6 +24,7 @@ class ProductModel {
     pAvailability = json['p_availability'];
     pDetails = json['p_details'];
     pCategory = json['p_category'];
+    pImageUrl = json['p_image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -31,6 +35,7 @@ class ProductModel {
     data['p_availability'] = pAvailability;
     data['p_details'] = pDetails;
     data['p_category'] = pCategory;
+    data['p_image'] = pImageUrl;
     return data;
   }
 }

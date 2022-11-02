@@ -19,3 +19,9 @@ class RemoveFromCart extends ShoppingCartEvent {
 }
 
 class LoadCartProducts extends ShoppingCartEvent {}
+
+class AddToCartError extends ShoppingCartEvent {
+  final String error;
+
+  AddToCartError(this.error);
+}

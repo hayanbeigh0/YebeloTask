@@ -14,13 +14,25 @@ class ShoppingCartBloc extends Bloc<ShoppingCartEvent, ShoppingCartState> {
     this.shoppingCartRepository,
   ) : super(ShoppingCartInitial()) {
     on<AddToCart>((event, emit) {
-      emit(ShoppingCartLoading());
-      shoppingCartRepository.addToShoppingCart(event.product);
-      emit(ShoppingCartLoaded(shoppingCartRepository.shoppingCartList));
+      try {
+        emit(ShoppingCartLoading());
+        shoppingCartRepository.addToShoppingCart(event.product);
+        emit(ShoppingCartLoaded(shoppingCartRepository.shoppingCartList));
+      } catch (e) {
+        print(e.toString());
+        add(AddToCartError(e.toString()));
+      }
     });
     on<RemoveFromCart>((event, emit) {
       emit(ShoppingCartLoading());
       shoppingCartRepository.removeFromShoppingCart(event.productId);
+      emit(ShoppingCartLoaded(shoppingCartRepository.shoppingCartList));
+    });
+    on<LoadCartProducts>((event, emit) {
+      emit(ShoppingCartLoaded(shoppingCartRepository.shoppingCartList));
+    });
+    on<AddToCartError>((event, emit) {
+      emit(AddToCartErrorState(event.error));
       emit(ShoppingCartLoaded(shoppingCartRepository.shoppingCartList));
     });
   }

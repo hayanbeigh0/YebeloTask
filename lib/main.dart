@@ -1,10 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shopping_app_task/logic/blocs/shopping_cart_bloc/shopping_cart_bloc.dart';
 
 import 'package:shopping_app_task/models/product_model.dart';
 
 import 'package:shopping_app_task/repository/product_repository.dart';
+import 'package:shopping_app_task/repository/shopping_cart_repository.dart';
 import 'package:shopping_app_task/screens/products_screen.dart';
 
 import 'logic/blocs/products_bloc/products_bloc.dart';
@@ -29,6 +31,10 @@ class MyApp extends StatelessWidget {
             ..add(
               ProductLoadEvent(),
             ),
+        ),
+        BlocProvider<ShoppingCartBloc>(
+          create: (context) => ShoppingCartBloc(ShoppingCartRepository())
+            ..add(LoadCartProducts()),
         ),
       ],
       child: MaterialApp(
