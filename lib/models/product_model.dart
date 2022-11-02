@@ -2,6 +2,7 @@ class ProductModel {
   String? pName;
   int? pId;
   int? pCost;
+  int? pQuantity;
   int? pAvailability;
   String? pDetails;
   String? pCategory;
@@ -25,6 +26,7 @@ class ProductModel {
     pDetails = json['p_details'];
     pCategory = json['p_category'];
     pImageUrl = json['p_image'];
+    pQuantity = json['p_quantity'];
   }
 
   Map<String, dynamic> toJson() {
@@ -36,6 +38,7 @@ class ProductModel {
     data['p_details'] = pDetails;
     data['p_category'] = pCategory;
     data['p_image'] = pImageUrl;
+    data['p_quantity'] = pQuantity;
     return data;
   }
 }
