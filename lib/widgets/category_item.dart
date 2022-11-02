@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class Category extends StatelessWidget {
   Category(
       {super.key,
@@ -47,15 +48,6 @@ class Category extends StatelessWidget {
             ),
           ),
         ),
-        // const SizedBox(
-        //   height: 3,
-        // ),
-        // Text(
-        //   categoryName,
-        //   style: GoogleFonts.lato(
-        //     fontSize: 13,
-        //   ),
-        // )
       ],
     );
   }

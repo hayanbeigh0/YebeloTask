@@ -13,6 +13,7 @@ class AddToCartErrorState extends ShoppingCartState {
   AddToCartErrorState(this.error);
 }
 
+// ignore: must_be_immutable
 class ShoppingCartLoaded extends ShoppingCartState {
   List<ProductModel> shoppingCartList;
   ShoppingCartLoaded(this.shoppingCartList);

@@ -1,13 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopping_app_task/logic/blocs/shopping_cart_bloc/shopping_cart_bloc.dart';
+import '/logic/blocs/shopping_cart_bloc/shopping_cart_bloc.dart';
 
-import 'package:shopping_app_task/models/product_model.dart';
-
-import 'package:shopping_app_task/repository/product_repository.dart';
-import 'package:shopping_app_task/repository/shopping_cart_repository.dart';
-import 'package:shopping_app_task/screens/products_screen.dart';
+import '/repository/product_repository.dart';
+import '/repository/shopping_cart_repository.dart';
+import '/screens/products_screen.dart';
 
 import 'logic/blocs/products_bloc/products_bloc.dart';
 
@@ -42,7 +40,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: ProductsScreen(),
+        home: const ProductsScreen(),
       ),
     );
   }

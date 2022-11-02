@@ -106,13 +106,13 @@ class _ShoppingCartListState extends State<ShoppingCartList> {
             },
           ),
         ),
-        Container(
+        SizedBox(
           height: 50,
           width: double.infinity,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               elevation: 0,
-              backgroundColor: Color.fromARGB(255, 185, 181, 81),
+              backgroundColor: const Color.fromARGB(255, 185, 181, 81),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -127,7 +127,7 @@ class _ShoppingCartListState extends State<ShoppingCartList> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
       ],

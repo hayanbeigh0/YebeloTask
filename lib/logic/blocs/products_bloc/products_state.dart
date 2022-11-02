@@ -8,6 +8,7 @@ class ProductsInitial extends ProductsState {}
 
 class ProductsLoading extends ProductsState {}
 
+// ignore: must_be_immutable
 class ProductsLoaded extends ProductsState {
   List<ProductModel> productList;
   ProductsLoaded({
@@ -15,6 +16,7 @@ class ProductsLoaded extends ProductsState {
   });
 }
 
+// ignore: must_be_immutable
 class PremiumProductsLoaded extends ProductsState {
   List<ProductModel> productList;
   PremiumProductsLoaded({
@@ -22,6 +24,7 @@ class PremiumProductsLoaded extends ProductsState {
   });
 }
 
+// ignore: must_be_immutable
 class TamilNaduProductsLoaded extends ProductsState {
   List<ProductModel> productList;
   TamilNaduProductsLoaded({

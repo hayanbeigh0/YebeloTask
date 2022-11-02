@@ -5,14 +5,14 @@ part of 'shopping_cart_bloc.dart';
 abstract class ShoppingCartEvent {}
 
 class AddToCart extends ShoppingCartEvent {
-  ProductModel product;
+  final ProductModel product;
   AddToCart({
     required this.product,
   });
 }
 
 class RemoveFromCart extends ShoppingCartEvent {
-  int productId;
+  final int productId;
   RemoveFromCart({
     required this.productId,
   });
