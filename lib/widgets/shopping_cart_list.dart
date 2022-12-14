@@ -44,48 +44,52 @@ class _ShoppingCartListState extends State<ShoppingCartList> {
                       const SizedBox(
                         width: 10,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            widget.shoppingCartList[index].pName.toString(),
-                            style: GoogleFonts.lato(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                              color: const Color.fromARGB(189, 0, 0, 0),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              widget.shoppingCartList[index].pName.toString(),
+                              style: GoogleFonts.lato(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                                color: const Color.fromARGB(189, 0, 0, 0),
+                              ),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            widget.shoppingCartList[index].pDetails.toString(),
-                            style: GoogleFonts.lato(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey,
+                            const SizedBox(
+                              height: 10,
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            '₹ ${widget.shoppingCartList[index].pCost.toString()}',
-                            style: GoogleFonts.lato(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
+                            Text(
+                              widget.shoppingCartList[index].pDetails
+                                  .toString(),
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.grey,
+                              ),
                             ),
-                          ),
-                          ProductQuantity(
-                              product: widget.shoppingCartList[index])
-                        ],
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              '₹ ${widget.shoppingCartList[index].pCost.toString()}',
+                              style: GoogleFonts.lato(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            ProductQuantity(
+                              product: widget.shoppingCartList[index],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                   Positioned(
-                    right: 10,
-                    top: 10,
+                    right: -15,
+                    top: 0,
                     child: IconButton(
                       onPressed: () {
                         BlocProvider.of<ShoppingCartBloc>(context).add(

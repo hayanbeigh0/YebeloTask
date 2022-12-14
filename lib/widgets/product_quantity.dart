@@ -73,11 +73,13 @@ class _ProductQuantityState extends State<ProductQuantity> {
             ),
           ),
           const SizedBox(
-            width: 40,
+            width: 20,
           ),
-          Text(
-            '${widget.product.pAvailability.toString()} left in stock',
-            style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+          Expanded(
+            child: Text(
+              '${widget.product.pAvailability.toString()} left in stock',
+              style: GoogleFonts.lato(fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
