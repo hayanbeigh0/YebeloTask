@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shopping_app_task/screens/shopping_cart_screen.dart';
+import 'package:badges/badges.dart';
 
 import '../logic/blocs/products_bloc/products_bloc.dart';
 import '../logic/blocs/shopping_cart_bloc/shopping_cart_bloc.dart';
@@ -30,12 +31,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
     return Scaffold(
       body: NotificationListener<UserScrollNotification>(
         onNotification: (notification) {
-          if (notification.direction == ScrollDirection.forward) {
+          if (notification.direction == ScrollDirection.idle) {
             setState(() {
               isFabVisible = true;
             });
-          }
-          if (notification.direction == ScrollDirection.reverse) {
+          } else {
             setState(() {
               isFabVisible = false;
             });
@@ -300,18 +300,35 @@ class _ProductsScreenState extends State<ProductsScreen> {
       floatingActionButton: isFabVisible
           ? Container(
               margin: const EdgeInsets.all(10),
-              child: FloatingActionButton(
-                backgroundColor: const Color.fromARGB(255, 185, 181, 81),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const ShoppingCartScreen(),
-                    ),
-                  );
+              child: BlocBuilder<ShoppingCartBloc, ShoppingCartState>(
+                builder: (context, state) {
+                  if (state is ShoppingCartLoaded) {
+                    return Badge(
+                      showBadge: state.shoppingCartList.isEmpty ? false : true,
+                      badgeContent: Text(
+                        state.shoppingCartList.length.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      child: FloatingActionButton(
+                        backgroundColor:
+                            const Color.fromARGB(255, 185, 181, 81),
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const ShoppingCartScreen(),
+                            ),
+                          );
+                        },
+                        child: const Icon(
+                          Icons.shopping_cart,
+                        ),
+                      ),
+                    );
+                  }
+                  return const SizedBox();
                 },
-                child: const Icon(
-                  Icons.shopping_cart,
-                ),
               ),
             )
           : null,
